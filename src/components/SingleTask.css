@@ -1,0 +1,21 @@
+.single-task{
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+}
+.task-done{
+    text-decoration: line-through;
+    color: #333333a8;
+}
+.task-overdue{
+    color: red
+}
+.task-description{
+    color: #333333a8;
+}
+.lists-menu{
+    list-style-type: none;
+}
+.lists-menu a{
+    text-decoration: none;
+    color: #333333;
+}

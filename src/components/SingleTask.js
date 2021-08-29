@@ -1,4 +1,5 @@
 import React from 'react';
+import './SingleTask.css'
 
 const SingleTask = ({task, setTasks, tasks}) => {
     const {title, description, done, dueDate} = task
@@ -18,16 +19,18 @@ const SingleTask = ({task, setTasks, tasks}) => {
         }))
     }
 
+    const isOverdue = () => task.dueDate < new Date()
+    const showDate = () => !dueDate ? "" : dueDate.toLocaleDateString('uk')
+
     return (
         <div className="single-task">
             <div className="heading">
-               
-                <label className={`${task.done ? 'done-task' : ''}`}>
+                <label className={`${task.done ? 'task-done' : ''}`}>
                     <input onChange={checkboxHandler}type="checkbox" name="done" checked={ done }/>
                     {title}
                 </label>
             </div>
-            <p className="task-due-date">{dueDate === "" ? "" : dueDate.toLocaleDateString('uk') }</p>
+            <p className={`task-due-date ${!task.done && isOverdue() ? 'task-overdue' : ''}`}>{ showDate() }</p>
             <p className="task-description">{description}</p>
             <button onClick={deleteHandler}>Delete</button>
         </div>
