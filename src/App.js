@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import './App.css';
-import Task from './components/Task';
+import Form from './components/Form';
+import Tasks from './components/Tasks';
 
 function App() {
-  const tasks = [
+  const initialTasks = [
     {
+      id: 1,
       title: 'First task',
       description: 'Its a description',
       done: false,
@@ -11,10 +14,25 @@ function App() {
     }
   ]
 
+  const [tasks, setTasks] = useState(initialTasks);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [dueDate, setDueDate] = useState("");
+
   return (
     <div className="App">
       <h1>TodoList</h1>
-      <Task task={tasks[0]}/>
+      <Form 
+        title={title}
+        setTitle={setTitle}
+        description={description}
+        setDescription={setDescription}
+        dueDate={dueDate}
+        setDueDate={setDueDate}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
+      <Tasks tasks={tasks} setTasks={setTasks}/>
     </div>
   );
 }
