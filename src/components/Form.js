@@ -42,11 +42,11 @@ const Form = ({
     }
 
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <input onChange={titleHandler} value={title} type="text" name="title" placeholder="Title" required></input>
             <input onChange={descriptionHandler} value={description} type="text" name="description" placeholder="Description"></input>
             <input onChange={dueDateHandler} value={dueDate} type="date" name="dueDate"></input>
-            <button onClick={submitHandler} type="submit">Add Task</button>
+            <button type="submit">Add Task</button>
         </form>
     );
 }
