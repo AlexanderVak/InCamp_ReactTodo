@@ -1,7 +1,8 @@
 import React from 'react';
+import { isTodayOverdue } from '../App';
 import './Form.css'
 
-const increment = (init = 1) => () => ++init
+const increment = (init = 3) => () => ++init
 const genId = increment()
 const Form = ({
     title,
@@ -12,7 +13,8 @@ const Form = ({
     setDueDate,
     tasks,
     setTasks,
-    selectedList
+    selectedList,
+    setTodayTasks
 }) => {
 
     const titleHandler = (event) => {
@@ -40,6 +42,7 @@ const Form = ({
                 listId: selectedList.id
             }
         ])
+        setTodayTasks(tasks.filter(isTodayOverdue))
         setTitle("")
         setDescription("")
         setDueDate("")
