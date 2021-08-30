@@ -4,7 +4,6 @@ import "./List.css"
 const List = ({list, todoLists, selectedList, setSelectedList}) => {
     const selectedListHandler = (event) => {
         event.preventDefault()
-        console.log(list);
         setSelectedList(todoLists.filter(item => item.id === list.id)[0])
     }
 

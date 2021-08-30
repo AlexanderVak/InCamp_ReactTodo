@@ -11,7 +11,8 @@ const Form = ({
     dueDate,
     setDueDate,
     tasks,
-    setTasks
+    setTasks,
+    selectedList
 }) => {
 
     const titleHandler = (event) => {
@@ -35,7 +36,8 @@ const Form = ({
                 title: title,
                 description: description,
                 done: false,
-                dueDate: dueDate
+                dueDate: dueDate,
+                listId: selectedList.id
             }
         ])
         setTitle("")

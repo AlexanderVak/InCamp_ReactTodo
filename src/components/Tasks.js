@@ -6,7 +6,7 @@ const Tasks = ({ tasks, setTasks, selectedList }) => {
     return (
         <div className="tasks-container">
             <div className="tasks">
-                {tasks.filter(task => task.id === selectedList.id).map(task => (
+                {tasks.filter(task => task.listId === selectedList.id).map(task => (
                     <SingleTask key={task.id} task={task} setTasks={setTasks} tasks={tasks} />
                 ))}
             </div>

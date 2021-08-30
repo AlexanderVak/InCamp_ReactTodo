@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+#list-sidebar{
+    max-width: 586px;
+}
+
 .column{
     padding: 10px 28px;
     margin: 0 20px;

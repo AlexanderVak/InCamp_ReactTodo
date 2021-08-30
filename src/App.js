@@ -39,7 +39,7 @@ function App() {
     <div className="App">
       <h1>TodoList</h1>
       <div className="row">
-        <div className="column">
+        <div className="column" id="list-sidebar">
           <Lists todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
         </div>
 
@@ -55,6 +55,7 @@ function App() {
           setDueDate={setDueDate}
           tasks={tasks}
           setTasks={setTasks}
+          selectedList={selectedList}
           />
         </div>
       </div>
