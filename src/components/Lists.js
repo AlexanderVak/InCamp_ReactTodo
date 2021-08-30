@@ -1,18 +1,17 @@
 import React from 'react';
+import List from './List';
+import "./Lists.css"
 
-const Lists = ({Lists, setLists}) => {
+const Lists = ({todoLists, selectedList, setSelectedList}) => {
 
-    const listsHandler = (event) => {
-        console.log(event.target.value);
-    }
     return (
         <ul className="lists-menu">
-            <li><a onClick={listsHandler} value="all" href="#">All</a></li>
-            <li><a onClick={listsHandler} value="done" href="#">Done</a></li>
-            <li><a onClick={listsHandler} value="unfinished" href="#">Unfinished</a></li>
-        </ul>
-
-        
+            <li>
+                {todoLists.map(list => 
+                    <List key={list.id} list={list} todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
+                )}
+            </li>
+        </ul>        
     );
 }
 
