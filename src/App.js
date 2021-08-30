@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Form from './components/Form';
 import Lists from './components/Lists';
@@ -36,30 +37,32 @@ function App() {
   const [filter, setFilter] = useState('all');
 
   return (
-    <div className="App">
-      <h1>TodoList</h1>
-      <div className="row">
-        <div className="column" id="list-sidebar">
-          <Lists todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
-        </div>
+    <Router>
+      <div className="App">
+        <h1>TodoList</h1>
+        <div className="row">
+          <div className="column" id="list-sidebar">
+            <Lists todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
+          </div>
 
-        <div className="column">
-          <Tasks tasks={tasks} setTasks={setTasks} selectedList={selectedList}/>
+          <div className="column">
+            <Tasks tasks={tasks} setTasks={setTasks} selectedList={selectedList}/>
 
-          <Form 
-          title={title}
-          setTitle={setTitle}
-          description={description}
-          setDescription={setDescription}
-          dueDate={dueDate}
-          setDueDate={setDueDate}
-          tasks={tasks}
-          setTasks={setTasks}
-          selectedList={selectedList}
-          />
+            <Form 
+            title={title}
+            setTitle={setTitle}
+            description={description}
+            setDescription={setDescription}
+            dueDate={dueDate}
+            setDueDate={setDueDate}
+            tasks={tasks}
+            setTasks={setTasks}
+            selectedList={selectedList}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
