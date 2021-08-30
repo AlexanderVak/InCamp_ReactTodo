@@ -1,1 +1,14 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
 
+.column{
+    padding: 10px 28px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

@@ -24,15 +24,18 @@ const SingleTask = ({task, setTasks, tasks}) => {
 
     return (
         <div className="single-task">
-            <div className="heading">
-                <label className={`${task.done ? 'task-done' : ''}`}>
-                    <input onChange={checkboxHandler}type="checkbox" name="done" checked={ done }/>
-                    {title}
-                </label>
+            <div className="task-content">
+                <div className="heading">
+                    <label className={`${task.done ? 'task-done' : ''}`}>
+                        <input onChange={checkboxHandler}type="checkbox" name="done" checked={ done }/>
+                        {title}
+                    </label>
+                </div>
+                <p className={`task-due-date ${!task.done && isOverdue() ? 'task-overdue' : ''}`}>{ showDate() }</p>
+                <p className="task-description">{description}</p>
+                
             </div>
-            <p className={`task-due-date ${!task.done && isOverdue() ? 'task-overdue' : ''}`}>{ showDate() }</p>
-            <p className="task-description">{description}</p>
-            <button onClick={deleteHandler}>Delete</button>
+            <button className="task-delete-btn" onClick={deleteHandler}>Delete</button>
         </div>
     );
 }

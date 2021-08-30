@@ -1,4 +1,6 @@
 import React from 'react';
+import './Form.css'
+
 const increment = (init = 1) => () => ++init
 const genId = increment()
 const Form = ({
