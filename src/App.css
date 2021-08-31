@@ -1,3 +1,9 @@
+a {
+    margin: 10px 0;
+    display: block;
+    text-decoration: none;
+    color: #333333;
+}
 .row{
     display: flex;
     flex-direction: row;
@@ -14,6 +20,14 @@
 .list-fixed-sidebar{
     position: fixed;
     height: 100%;
+}
+
+.today-link{
+    margin-left: 5px;
+    display: inline;
+}
+.today-link:hover{
+    color: #49f388;
 }
 
 .column{

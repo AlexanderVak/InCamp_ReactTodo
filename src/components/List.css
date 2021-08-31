@@ -1,10 +1,4 @@
-a {
-    margin: 10px 0;
-    display: block;
-    text-decoration: none;
-    color: #333333;
-}
-a:hover {
+.list-content:hover {
     background-color: #eeebebfb;
 }
 .list-selected{

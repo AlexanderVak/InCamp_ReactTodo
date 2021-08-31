@@ -5,5 +5,5 @@
 .tasks-container{
     display: flex;
     flex-direction: column;
-    max-height: 308px;
+    max-height: 408px;
 }
