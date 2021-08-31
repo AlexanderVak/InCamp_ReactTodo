@@ -1,5 +1,8 @@
 .lists-menu{
     margin: 0;
-    font-size: 2em;
+    padding: 20px;
+    font-size: 1.7em;
+    border: 1px solid;
+    height: 100%;
 }
 

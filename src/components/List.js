@@ -6,9 +6,10 @@ const List = ({list, todoLists, selectedList, setSelectedList}) => {
         event.preventDefault()
         setSelectedList(todoLists.filter(item => item.id === list.id)[0])
     }
-
+    const selectedListClassname = `${selectedList.id === list.id ? 'list-selected' : ''}`
+    
     return (
-        <a className={`${selectedList.id === list.id ? 'list-selected' : ''}`} onClick={selectedListHandler} href="">
+        <a className={selectedListClassname} onClick={selectedListHandler} href="">
             {list.title}
         </a>
     );

@@ -6,7 +6,14 @@
 }
 
 #list-sidebar{
+    margin: 0px;
+    padding: 0px;
     max-width: 586px;
+}
+
+.list-fixed-sidebar{
+    position: fixed;
+    height: 100%;
 }
 
 .column{

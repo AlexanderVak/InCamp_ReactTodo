@@ -61,18 +61,21 @@ function App() {
     <Router>
       <div className="App">
         <h1>TodoList</h1>
-
         <Switch>
-          <Route exact path="/today">
-            <TodayTasks todayTasks={todayTasks} setTasks={setTasks}/> 
-          </Route>
-
-          <Route exact path="/"> 
-            <div className="row">
-              <div className="column" id="list-sidebar">
+          <div className="row">
+            <div className="column" id="list-sidebar">
+              <div className="list-fixed-sidebar">
                 <Lists todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
               </div>
+            </div>
 
+            <Route exact path="/today">
+              <div className="column">
+                <TodayTasks todayTasks={todayTasks} setTasks={setTasks} todoLists={todoLists}/> 
+              </div>
+            </Route>
+            
+            <Route exact path="/"> 
               <div className="column">
                 <Tasks tasks={tasks} setTasks={setTasks} selectedList={selectedList}/>
 
@@ -89,10 +92,9 @@ function App() {
                 setTodayTasks={setTodayTasks}
                 />
               </div>
-            </div>
-          </Route>
+            </Route>
+          </div>
         </Switch>
-        
       </div>
     </Router>
   );
