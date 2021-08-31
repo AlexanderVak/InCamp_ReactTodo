@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import Form from './components/Form';
 import Lists from './components/Lists';
@@ -23,7 +23,7 @@ function App() {
       description: 'Its a description for second task',
       done: false,
       dueDate: new Date("2021-08-17"),
-      listId: 1
+      listId: 2
     },
     {
       id: 3,
@@ -61,6 +61,8 @@ function App() {
     <Router>
       <div className="App">
         <h1>TodoList</h1>
+        <Link className="today-link" to="/">HOME</Link>
+        <Link className="today-link" to="/today">TODAY</Link>
         <Switch>
           <div className="row">
             <div className="column" id="list-sidebar">
@@ -75,7 +77,8 @@ function App() {
               </div>
             </Route>
             
-            <Route exact path="/"> 
+            <Route exact path="/lists/:id"> 
+
               <div className="column">
                 <Tasks tasks={tasks} setTasks={setTasks} selectedList={selectedList}/>
 

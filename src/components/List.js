@@ -1,17 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./List.css"
 
 const List = ({list, todoLists, selectedList, setSelectedList}) => {
-    const selectedListHandler = (event) => {
-        event.preventDefault()
+    const selectedListHandler = () => {
         setSelectedList(todoLists.filter(item => item.id === list.id)[0])
     }
-    const selectedListClassname = `${selectedList.id === list.id ? 'list-selected' : ''}`
-    
+
     return (
-        <a className={selectedListClassname} onClick={selectedListHandler} href="">
+        <Link
+        to={`/lists/${list.id}`}
+        className={`${selectedList.id === list.id ? 'list-selected' : ''}`}
+        onClick={selectedListHandler}
+        >
             {list.title}
-        </a>
+        </Link>
     );
 }
 
