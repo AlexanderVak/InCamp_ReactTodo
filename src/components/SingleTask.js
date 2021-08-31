@@ -19,8 +19,8 @@ const SingleTask = ({task, setTasks, tasks}) => {
         }))
     }
 
-    const isOverdue = () => task.dueDate < new Date()
-    const showDate = () => !dueDate ? "" : dueDate.toLocaleDateString('uk')
+    const isOverdue = () => new Date(dueDate) < new Date()
+    const showDate = () => !dueDate ? "" : new Date(dueDate).toLocaleDateString('uk')
 
     return (
         <div className="single-task">
