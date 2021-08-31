@@ -18,7 +18,7 @@ function App() {
   const [todoLists, setTodoLists] = useState([]);
   const [selectedList, setSelectedList] = useState({});
   const [todayTasks, setTodayTasks] = useState([]);
-  const [filter, setFilter] = useState('all');
+  // const [filter, setFilter] = useState('all');
   
   useEffect(() => {
     const getTasks = async () => {
