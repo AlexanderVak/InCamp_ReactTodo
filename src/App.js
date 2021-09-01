@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import api from './api/todo'
 import './App.css';
 import Form from './components/Form';
 import Lists from './components/Lists';
@@ -8,54 +9,70 @@ import TodayTasks from './components/TodayTasks';
 
 export const isTodayOverdue = task => task.dueDate <= new Date() && !task.done
 function App() {
-  const initialTasks = [
-    {
-      id: 1,
-      title: 'First task',
-      description: 'Its a description',
-      done: false,
-      dueDate: new Date(),
-      listId: 1
-    },
-    {
-      id: 2,
-      title: 'Second task',
-      description: 'Its a description for second task',
-      done: false,
-      dueDate: new Date("2021-08-17"),
-      listId: 2
-    },
-    {
-      id: 3,
-      title: 'Third task',
-      description: 'Its a description',
-      done: false,
-      dueDate: new Date("2021-09-12"),
-      listId: 1
-    },
-  ]
 
-  const initialLists = [
-    {
-      id: 1,
-      title: "First list"
-    },
-    {
-      id: 2,
-      title: "Second list"
-    },
-  ]
-
-  const initialTodayTasks = initialTasks.filter(isTodayOverdue)
-
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
-  const [todoLists, setTodoLists] = useState(initialLists);
-  const [selectedList, setSelectedList] = useState(initialLists[0]);
-  const [todayTasks, setTodayTasks] = useState(initialTodayTasks);
-  const [filter, setFilter] = useState('all');
+  const [todoLists, setTodoLists] = useState([]);
+  const [selectedList, setSelectedList] = useState({});
+  const [todayTasks, setTodayTasks] = useState([]);
+  // const [filter, setFilter] = useState('all');
+
+  const useSelectedList = (id) => {
+    useEffect(() => {
+      const getSelectedList = async () => {
+        try {
+          const response = await api.get(`/lists/${id}`)
+          setSelectedList(response.data)
+        } catch (err) {
+          if (err.response) {
+            console.log(err.response.data);
+            console.log(err.response.status);
+            console.log(err.response.headers);
+          } else {
+            console.log(`Error: ${err.message}`);
+          }
+        }
+      }
+    }, [selectedList]);
+  } 
+  
+  useEffect(() => {
+    const getTasks = async () => {
+      try {
+        const response = await api.get('/lists/2/tasks')
+        setTasks(response.data)
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    }
+
+    const getLists = async () => {
+      try {
+        const response = await api.get('/lists')
+
+        setTodoLists(response.data)
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    }
+    getTasks();
+    getLists();
+  }, []);
+  
 
   return (
     <Router>
