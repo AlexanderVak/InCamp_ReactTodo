@@ -1,6 +1,6 @@
 import React from 'react';
 import SingleTask from './SingleTask';
-import "./Tasks.css"
+import "../styles/Tasks.css"
 
 const Tasks = ({ tasks, setTasks, selectedList }) => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import List from './List';
-import "./Lists.css"
+import "../styles/Lists.css"
 
 const Lists = ({todoLists, selectedList, setSelectedList}) => {
 

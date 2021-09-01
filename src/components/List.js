@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./List.css"
+import "../styles/List.css"
 
 const List = ({list, todoLists, selectedList, setSelectedList}) => {
     const selectedListHandler = () => {

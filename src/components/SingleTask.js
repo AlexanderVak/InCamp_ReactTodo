@@ -1,5 +1,5 @@
 import React from 'react';
-import './SingleTask.css'
+import '../styles/SingleTask.css'
 
 const SingleTask = ({task, setTasks, tasks}) => {
     const {title, description, done, dueDate} = task
