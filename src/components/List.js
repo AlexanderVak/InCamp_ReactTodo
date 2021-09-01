@@ -10,7 +10,7 @@ const List = ({list, todoLists, selectedList, setSelectedList}) => {
     return (
         <Link
         to={`/lists/${list.id}`}
-        className={`${selectedList.id === list.id ? 'list-selected' : ''}`}
+        className={`${selectedList.id === list.id ? 'list-selected' : ''} list-content`}
         onClick={selectedListHandler}
         >
             {list.title}
