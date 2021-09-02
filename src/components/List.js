@@ -1,17 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { selectList } from '../store/dashboard/actions';
 import "../styles/List.css"
 
-const List = ({list, todoLists, selectedList, setSelectedList}) => {
-    const selectedListHandler = () => {
-        setSelectedList(todoLists.filter(item => item.id === list.id)[0])
-    }
+const List = ({list}) => {
+    
+    const dispatch = useDispatch()
+    const selectedList = useSelector(state => state.selectedList)
 
     return (
         <Link
         to={`/lists/${list.id}`}
         className={`${selectedList.id === list.id ? 'list-selected' : ''} list-content`}
-        onClick={selectedListHandler}
+        onClick={() => dispatch(selectList(list.id))}
         >
             {list.title}
         </Link>
