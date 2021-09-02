@@ -21,4 +21,21 @@ export const getTasks =  (id) => async (dispatch) => {
       }
     }
 }
-export const changeStatus = (taskId) => ({type: CHANGE_STATUS, payload: taskId})
+export const changeStatus = (taskId, lsitid, done) => async (dispatch) => {
+    try {
+        const response = await axios.patch(`/lists/${lsitid}/tasks/${taskId}`, {done: !done})
+        dispatch({
+            type: CHANGE_STATUS,
+            payload: response.data
+        })  
+      
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+}

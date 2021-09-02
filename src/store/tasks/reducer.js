@@ -6,9 +6,9 @@ const tasksReducer = (state = [], { type, payload }) => {
     case LOAD_TASKS:
         return payload
     case CHANGE_STATUS:
-        const index = state.findIndex(task => task.id === payload)
+        const index = state.findIndex(task => task.id === payload.id)
         const newState = [...state]
-        newState[index].done = !newState[index].done
+        newState[index] = payload
         return newState
     case "":
         return ""
