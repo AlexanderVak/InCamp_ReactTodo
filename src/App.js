@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import api from './api/todo'
 import './App.css';
 import Form from './components/Form';
 import Lists from './components/Lists';
 import Tasks from './components/Tasks';
 import TodayTasks from './components/TodayTasks';
+
 
 export const isTodayOverdue = task => task.dueDate <= new Date() && !task.done
 function App() {
@@ -18,26 +19,8 @@ function App() {
   const [selectedList, setSelectedList] = useState({});
   const [todayTasks, setTodayTasks] = useState([]);
   // const [filter, setFilter] = useState('all');
-  
-  useEffect(() => {
 
-    const getLists = async () => {
-      try {
-        const response = await api.get('/lists')
 
-        setTodoLists(response.data)
-      } catch (err) {
-        if (err.response) {
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    }
-    getLists();
-  }, []);
   
 
   return (
