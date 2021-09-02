@@ -18,41 +18,8 @@ function App() {
   const [selectedList, setSelectedList] = useState({});
   const [todayTasks, setTodayTasks] = useState([]);
   // const [filter, setFilter] = useState('all');
-
-  const useSelectedList = (id) => {
-    useEffect(() => {
-      const getSelectedList = async () => {
-        try {
-          const response = await api.get(`/lists/${id}`)
-          setSelectedList(response.data)
-        } catch (err) {
-          if (err.response) {
-            console.log(err.response.data);
-            console.log(err.response.status);
-            console.log(err.response.headers);
-          } else {
-            console.log(`Error: ${err.message}`);
-          }
-        }
-      }
-    }, [selectedList]);
-  } 
   
   useEffect(() => {
-    const getTasks = async () => {
-      try {
-        const response = await api.get('/lists/2/tasks')
-        setTasks(response.data)
-      } catch (err) {
-        if (err.response) {
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    }
 
     const getLists = async () => {
       try {
@@ -69,7 +36,6 @@ function App() {
         }
       }
     }
-    getTasks();
     getLists();
   }, []);
   
