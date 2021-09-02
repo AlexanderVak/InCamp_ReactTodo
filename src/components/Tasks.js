@@ -4,7 +4,7 @@ import "../styles/Tasks.css"
 import { useParams } from 'react-router-dom';
 
 
-const Tasks = () => {
+const Tasks = ({ tasks, setTasks}) => {
 
     const {id} = useParams()
     console.log(id, typeof +id);
@@ -28,7 +28,7 @@ const Tasks = () => {
 
     // }, [selectedList]);
 
-    const { tasks, setTasks } = useFetchTasks(+id)
+    // const { tasks, setTasks } = useFetchTasks(+id)
     return (
         <div className="tasks-container">
             <div className="tasks">
