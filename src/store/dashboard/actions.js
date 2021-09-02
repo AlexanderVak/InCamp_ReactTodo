@@ -22,7 +22,7 @@ export const getLists = async (dispatch) => {
     }
 }
 
-export const selectList = async (dispatch, id) => {
+export const selectList =  (id) => async (dispatch) => {
     try {
       const response = await axios.get(`/lists/${id}`)
       dispatch({
