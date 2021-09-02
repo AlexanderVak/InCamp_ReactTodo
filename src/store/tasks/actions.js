@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const LOAD_TASKS = "load/tasks"
+export const CHANGE_STATUS = "changeStatus/task"
 
 export const getTasks =  (id) => async (dispatch) => {
     try {
@@ -20,3 +21,4 @@ export const getTasks =  (id) => async (dispatch) => {
       }
     }
 }
+export const changeStatus = (taskId) => ({type: CHANGE_STATUS, payload: taskId})
