@@ -4,7 +4,7 @@ import "../styles/Lists.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { getLists } from '../store/dashboard/actions';
 
-const Lists = ({todoLists, selectedList, setSelectedList}) => {
+const Lists = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -17,7 +17,7 @@ const Lists = ({todoLists, selectedList, setSelectedList}) => {
         <ul className="lists-menu">
             <li>
                 {lists.map(list => 
-                    <List key={list.id} list={list} todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
+                    <List key={list.id} list={list} />
                 )}
             </li>
         </ul>        

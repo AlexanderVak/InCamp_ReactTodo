@@ -20,9 +20,6 @@ function App() {
   const [todayTasks, setTodayTasks] = useState([]);
   // const [filter, setFilter] = useState('all');
 
-
-  
-
   return (
     <Router>
       <div className="App">
@@ -33,7 +30,7 @@ function App() {
           <div className="row">
             <div className="column" id="list-sidebar">
               <div className="list-fixed-sidebar">
-                <Lists todoLists={todoLists} selectedList={selectedList} setSelectedList={setSelectedList}/>
+                <Lists/>
               </div>
             </div>
 
