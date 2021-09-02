@@ -30,7 +30,7 @@ const SingleTask = ({task}) => {
             <div className="task-content">
                 <div className="heading">
                     <label className={`${task.done ? 'task-done' : ''}`}>
-                        <input onChange={() => dispatch(changeStatus(task.id, task.listId, task.done))}type="checkbox" name="done" checked={ done }/>
+                        <input onChange={changeStatus(task.id, task.listId, task.done)}type="checkbox" name="done" checked={ done }/>
                         {title}
                     </label>
                 </div>
