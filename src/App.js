@@ -40,10 +40,10 @@ function App() {
               </div>
             </Route>
             
-            <Route exact path="/lists/:id"> 
+            <Route exact path="/lists/:id/tasks"> 
 
               <div className="column">
-                <Tasks tasks={tasks} setTasks={setTasks} selectedList={selectedList}/>
+                <Tasks/>
 
                 <Form 
                 title={title}
