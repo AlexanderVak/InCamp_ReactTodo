@@ -11,7 +11,7 @@ const List = ({list}) => {
 
     return (
         <Link
-        to={`/lists/${list.id}`}
+        to={`/lists/${list.id}/tasks`}
         className={`${selectedList.id === list.id ? 'list-selected' : ''} list-content`}
         onClick={() => dispatch(selectList(list.id))}
         >
