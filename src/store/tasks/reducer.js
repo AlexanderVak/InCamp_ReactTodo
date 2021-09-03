@@ -1,4 +1,5 @@
-import { CHANGE_STATUS, LOAD_TASKS } from "./actions"
+import { combineReducers } from "redux"
+import { CHANGE_STATUS, FILTER_TASKS, LOAD_TASKS } from "./actions"
 
 const tasksReducer = (state = [], { type, payload }) => {
     switch (type) {
@@ -19,4 +20,22 @@ const tasksReducer = (state = [], { type, payload }) => {
         return state
     }
 }
-export default tasksReducer
+
+export const tasksFilterReducer = (state =  '', { type, payload }) => {
+    switch (type) {
+
+    case FILTER_TASKS:
+        return payload
+
+    default:
+        return state
+    }
+}
+
+export const combinedTasksReducers = combineReducers({
+    tasks: tasksReducer, 
+    filter: tasksFilterReducer
+})
+
+
+export default combinedTasksReducers

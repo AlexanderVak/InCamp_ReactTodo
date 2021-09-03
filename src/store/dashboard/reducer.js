@@ -10,7 +10,6 @@ const dashboardReducer = (state = [], { type, payload }) => {
         return state
     }
 }
-
  
 export const selectedListReducer = (state = {}, { type, payload }) => {
     switch (type) {
